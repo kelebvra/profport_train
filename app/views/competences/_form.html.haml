@@ -1,0 +1,16 @@
+= form_for @competence do |f|
+  - if @competence.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@competence.errors.count, "error")} prohibited this competence from being saved:"
+      %ul
+        - @competence.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :content
+    = f.text_area :content
+  .actions
+    = f.submit 'Save'
